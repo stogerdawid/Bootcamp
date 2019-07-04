@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Akka.Actor;
+using Lesson2.Messages;
 
-namespace Lesson1
+namespace Lesson2
 {
     class Program
     {
@@ -14,14 +15,16 @@ namespace Lesson1
             PrintInstructions();
             // The code provided will print ‘Hello World’ to the console.
             // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Lesson 1");
+            Console.WriteLine("Lesson 2");
 
             using (var myActorSystem = ActorSystem.Create("MyActorSystem"))
             {
-                var consoleReaderActor = myActorSystem.ActorOf(Props.Create(() => new ConsoleReaderActor()));
-                var consoleWriterActor = myActorSystem.ActorOf(Props.Create(() => new ConsoleWriterActor()));
 
-                consoleReaderActor.Tell("Start");
+                var consoleWriterActor = myActorSystem.ActorOf(Props.Create(() => new ConsoleWriterActor()),"Writer");
+                var consoleReaderActor = myActorSystem.ActorOf(Props.Create(() => new ConsoleReaderActor(consoleWriterActor)), "Reader");
+
+
+                consoleReaderActor.Tell(new StartMsg());
                 myActorSystem.WhenTerminated.Wait();
             }
             Console.ReadKey();
