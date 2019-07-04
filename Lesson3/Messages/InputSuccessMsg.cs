@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson2.Messages
+namespace Lesson3.Messages
 {
     public class InputSuccessMsg : ResponseMsg
     {

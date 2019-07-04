@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Akka.Actor;
-using Lesson2.Messages;
+using Lesson3.Messages;
 
-namespace Lesson2
+namespace Lesson3.Actors
 {
     public class ConsoleWriterActor : UntypedActor
     {
@@ -28,7 +28,7 @@ namespace Lesson2
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(smsg.Reason);
-           
+
                 var reverse = smsg.Message.ToString().Reverse().ToArray();
                 var revertedMsg = new string(reverse);
                 Console.ForegroundColor = ConsoleColor.Red;
