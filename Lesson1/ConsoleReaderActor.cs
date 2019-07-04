@@ -16,7 +16,9 @@ namespace Lesson1
         }
         protected override void OnReceive(object message)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Please provide a input");
+            Console.ForegroundColor = ConsoleColor.Blue;
             string input = Console.ReadLine();
             if (input.Equals("exit"))
             {
@@ -27,6 +29,7 @@ namespace Lesson1
                 WriterActor.Tell(input);
                 Self.Tell("Continue");
             }
+            Console.ResetColor();
         }
     }
 }

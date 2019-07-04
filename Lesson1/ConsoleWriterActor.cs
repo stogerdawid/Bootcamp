@@ -11,7 +11,16 @@ namespace Lesson1
     {
         protected override void OnReceive(object message)
         {
-            Console.WriteLine(message);
+            var msg = message as string;
+            if (msg != null)
+            {
+
+                var reverse = msg.Reverse().ToArray();
+                var revertedMsg = new string(reverse);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(revertedMsg);
+                Console.ResetColor();
+            }
         }
     }
 }
