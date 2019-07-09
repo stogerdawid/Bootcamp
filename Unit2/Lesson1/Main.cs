@@ -5,6 +5,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using Akka.Actor;
 using Akka.Util.Internal;
 using ChartApp.Actors;
+using Lesson4.Messages;
 
 namespace ChartApp
 {
@@ -41,5 +42,12 @@ namespace ChartApp
         }
 
         #endregion
+
+        private void Add_Series_btn_Click(object sender, EventArgs e)
+        {
+            var series = ChartDataHelper.RandomSeries("DS Series" +
+             _seriesCounter.GetAndIncrement());
+            _chartActor.Tell(new AddSeriesMsg(series));
+        }
     }
 }
