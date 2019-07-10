@@ -31,7 +31,7 @@ namespace ChartApp
         {
 
             _chartActor = Program.ChartActors.ActorOf(Props.Create(() =>
-            new ChartingActor(sysChart)), "charting");
+            new ChartingActor(sysChart, BtnPause)), "charting");
 
             _chartActor.Tell(new ChartingActor.InitializeChart(null)); //no initial series
 
@@ -89,6 +89,11 @@ namespace ChartApp
         private void Disk_btn_Click(object sender, EventArgs e)
         {
             _toggleActors[CounterType.Disk].Tell(new ToggleMessage());
+        }
+
+        private void BtnPause_Click(object sender, EventArgs e)
+        {
+            _chartActor.Tell(new TogglePause());
         }
     }
 }

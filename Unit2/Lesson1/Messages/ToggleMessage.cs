@@ -9,4 +9,6 @@ namespace ChartApp.Messages
     public class ToggleMessage
     {
     }
+
+    public class TogglePause { }
 }
