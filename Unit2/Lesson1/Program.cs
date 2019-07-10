@@ -20,10 +20,11 @@ namespace ChartApp
         [STAThread]
         static void Main()
         {
+
             var configuration = ConfigurationFactory.Load();
 
-            ChartActors = ActorSystem.Create("ChartActors");
 
+            ChartActors = ActorSystem.Create("ChartActors");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());

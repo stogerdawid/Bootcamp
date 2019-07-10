@@ -32,7 +32,9 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sysChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Add_Series_btn = new System.Windows.Forms.Button();
+            this.Disk_btn = new System.Windows.Forms.Button();
+            this.Cpu_btn = new System.Windows.Forms.Button();
+            this.Memory_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sysChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,22 +56,44 @@
             this.sysChart.TabIndex = 0;
             this.sysChart.Text = "sysChart";
             // 
-            // Add_Series_btn
+            // Disk_btn
             // 
-            this.Add_Series_btn.Location = new System.Drawing.Point(582, 377);
-            this.Add_Series_btn.Name = "Add_Series_btn";
-            this.Add_Series_btn.Size = new System.Drawing.Size(75, 23);
-            this.Add_Series_btn.TabIndex = 1;
-            this.Add_Series_btn.Text = "Add Series";
-            this.Add_Series_btn.UseVisualStyleBackColor = true;
-            this.Add_Series_btn.Click += new System.EventHandler(this.Add_Series_btn_Click);
+            this.Disk_btn.Location = new System.Drawing.Point(582, 377);
+            this.Disk_btn.Name = "Disk_btn";
+            this.Disk_btn.Size = new System.Drawing.Size(75, 23);
+            this.Disk_btn.TabIndex = 1;
+            this.Disk_btn.Text = "DISK (OFF)";
+            this.Disk_btn.UseVisualStyleBackColor = true;
+            this.Disk_btn.Click += new System.EventHandler(this.Disk_btn_Click);
+            // 
+            // Cpu_btn
+            // 
+            this.Cpu_btn.Location = new System.Drawing.Point(582, 279);
+            this.Cpu_btn.Name = "Cpu_btn";
+            this.Cpu_btn.Size = new System.Drawing.Size(75, 23);
+            this.Cpu_btn.TabIndex = 2;
+            this.Cpu_btn.Text = "CPU";
+            this.Cpu_btn.UseVisualStyleBackColor = true;
+            this.Cpu_btn.Click += new System.EventHandler(this.Cpu_btn_Click);
+            // 
+            // Memory_btn
+            // 
+            this.Memory_btn.Location = new System.Drawing.Point(582, 320);
+            this.Memory_btn.Name = "Memory_btn";
+            this.Memory_btn.Size = new System.Drawing.Size(75, 23);
+            this.Memory_btn.TabIndex = 3;
+            this.Memory_btn.Text = "MEMORY (OFF)";
+            this.Memory_btn.UseVisualStyleBackColor = true;
+            this.Memory_btn.Click += new System.EventHandler(this.Memory_btn_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 446);
-            this.Controls.Add(this.Add_Series_btn);
+            this.Controls.Add(this.Memory_btn);
+            this.Controls.Add(this.Cpu_btn);
+            this.Controls.Add(this.Disk_btn);
             this.Controls.Add(this.sysChart);
             this.Name = "Main";
             this.Text = "System Metrics";
@@ -83,7 +107,9 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart sysChart;
-        private System.Windows.Forms.Button Add_Series_btn;
+        private System.Windows.Forms.Button Disk_btn;
+        private System.Windows.Forms.Button Cpu_btn;
+        private System.Windows.Forms.Button Memory_btn;
     }
 }
 
